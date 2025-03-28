@@ -1,0 +1,560 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+/* Navbar Styling */
+.navbar {
+    background: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Logo */
+.navbar .logo a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #f4a261; /* Highlight color */
+}
+/* Home Page Styling */
+/* Home Container */
+.home-container {
+    max-width: 650px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 40px auto;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Address List */
+.address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.address-item {
+    background: #f0f2f5;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Address Text */
+.address-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Default Address Badge */
+.default-badge {
+    background: #2a9d8f;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Delete Button */
+.delete-button {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background: #c9302c;
+}
+/* Style for Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 40%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.open-modal-button {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.open-modal-button:hover {
+    background: #0056b3;
+}
+
+.submit-button {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background: #218838;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Full-width Input */
+.full-width {
+    grid-column: span 2;
+}
+
+/* Input Fields */
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Submit Button */
+.submit-button {
+    background: #2a9d8f;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 15px;
+}
+
+.submit-button:hover {
+    background: #21867a;
+}
+.set-default-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.set-default-button:hover {
+    background: #0056b3;
+}
+
+/* Center and style the login form */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align:start;
+}
+.login-container h2{
+    text-align: center;
+}
+
+/* Input fields */
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Button styling */
+.login-container button {
+    background: #2a9d8f;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.login-container button:hover {
+    background: #21867a;
+}
+.login-links {
+    text-align: center;
+    margin-top: 20px; /* Add some space above the links */
+}
+
+.login-links p {
+    margin: 10px 0; /* Add space between paragraphs */
+    font-size: 0.9rem; /* Slightly smaller font */
+    color: #555; /* Darker grey color */
+}
+
+.login-links a {
+    color: #2a9d8f; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Semi-bold font */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.login-links a:hover {
+    color: #21867a; /* Darker color on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Register Page Container */
+/* Center the form */
+/* ... (Your existing global styles) ... */
+
+.register-container {
+    max-width: 600px;
+    margin: 40px auto; /* Added margin for better spacing */
+    padding: 40px; /* Increased padding */
+    background: #f9f9f9; /* Lighter background */
+    border-radius: 12px; /* Increased border radius */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    text-align: left; /* Aligned text to the left */
+}
+
+.register-title {
+    font-size: 28px; /* Increased font size */
+    font-weight: 600; /* Slightly lighter bold */
+    margin-bottom: 30px; /* Increased margin */
+    color: #333; /* Darker title color */
+    text-align: center; /* Centered the title */
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap */
+}
+
+.form-row {
+    display: flex;
+    gap: 20px; /* Increased gap */
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    border: 1px solid #ddd; /* Lighter border */
+    border-radius: 8px; /* Increased border radius */
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2a9d8f; /* Focus color */
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Increased gap */
+    margin-top: 10px; /* Added margin */
+}
+
+.checkbox-group label {
+    font-weight: 500;
+    color: #555;
+}
+
+.submit-button {
+    background: linear-gradient(to right, #6dd5ed, #2a9d8f); /* Gradient background */
+    color: white;
+    padding: 14px 20px; /* Increased padding */
+    border: none;
+    border-radius: 8px; /* Increased border radius */
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+    background: linear-gradient(to right, #2a9d8f, #6dd5ed); /* Reversed gradient on hover */
+}
+
+/*seeler rfgigsiter css */
+.seller-register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.seller-register-btn {
+    display: inline-block;
+    background-color: #ff6600;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.seller-register-btn:hover {
+    background-color: #e65c00;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #444;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Content Container */
+.content-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 20px;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+
+/* Main Container (for form content) */
+
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Rest of your CSS (Headings, Paragraphs, Forms, Buttons, etc.) */
+/* ... (Keep your existing styles) ... */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-auth {
+        margin-top: 10px;
+    }
+}
+
+
+
+
+
+/* edit product css*/
+/* Product Form Styling */
+.product-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 16px;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.submit-button {
+    background: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background: #45a049;
+}
+
+.back-button {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-button:hover {
+    color: #222;
+}

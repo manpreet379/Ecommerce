@@ -1,0 +1,92 @@
+{% extends "services/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <h1 class="home-title">Welcome to the Home Page</h1>
+
+    {% if user.is_authenticated %}
+        <p class="user-welcome">Hello, <strong>{{ user.email }}</strong>!</p>
+
+        <h2 class="section-title">Your Addresses:</h2>
+        {% if addresses %}
+            <ul class="address-list">
+                {% for address in addresses %}
+        <li class="address-item">
+            <span>{{ address.street }}, {{ address.city }},{{address.state}}, {{ address.country }}</span>
+            
+            {% if address.is_default %}
+                <span class="default-badge">Default</span>
+            {% else %}
+                <form method="post" action="{% url 'set_default_address' address.id %}" class="set-default-form">
+                    {% csrf_token %}
+                    <button type="submit" class="set-default-button">Set as Default</button>
+                </form>
+            {% endif %}
+            
+            <form method="post" action="{% url 'delete_address' address.id %}" class="delete-form">
+                {% csrf_token %}
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
+        </li>
+    {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-addresses">No addresses found.</p>
+        {% endif %}
+
+        <!-- Add Address Button -->
+        <button class="open-modal-button" onclick="openModal()">Add Address</button>
+
+        <!-- Modal for Add Address Form -->
+        <div id="address-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <h2>Add New Address</h2>
+                <form method="post" id="address-form">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="id_street">Street:</label>
+                            {{ address_form.street }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_city">City:</label>
+                            {{ address_form.city }}
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="id_state">State:</label>
+                            {{ address_form.state }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_postal_code">Postal Code:</label>
+                            {{ address_form.postal_code }}
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="id_country">Country:</label>
+                            {{ address_form.country }}
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label for="id_is_default">
+                                {{ address_form.is_default }} Set as Default
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Save Address</button>
+                </form>
+            </div>
+        </div>
+
+    {% else %}
+        <p class="not-logged-in">You are not logged in.</p>
+    {% endif %}
+</div>
+{% endblock %}

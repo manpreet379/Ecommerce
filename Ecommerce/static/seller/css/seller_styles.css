@@ -1,0 +1,410 @@
+seller/static/seller/css/seller_styles.css
+
+body {
+    background-color: #f4f7fc;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ... (Your existing global styles) ... */
+/* ... (Your existing global styles) ... */
+
+.seller-register-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.seller-register-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.seller-register-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.seller-register-container .form-row {
+    display: flex;
+    justify-content: space-between; /* Space between left and right */
+    gap: 20px;
+}
+
+.seller-register-container .form-group {
+    flex: 1; /* Equal width for left and right */
+}
+
+.seller-register-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.seller-register-container input[type="text"],
+.seller-register-container input[type="email"],
+.seller-register-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.seller-register-container input[type="text"]:focus,
+.seller-register-container input[type="email"]:focus,
+.seller-register-container input[type="password"]:focus {
+    outline: none;
+    border-color: #2a9d8f;
+}
+
+.seller-register-container button[type="submit"] {
+    background: linear-gradient(to right, #6dd5ed, #2a9d8f);
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px; /* Adjusted margin */
+    align-self: center; /* Center the button */
+    width: 100%; /* Full width */
+}
+
+.seller-register-container button[type="submit"]:hover {
+    background: linear-gradient(to right, #2a9d8f, #6dd5ed);
+}
+
+.seller-register-container .errorlist {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 3px;
+}
+
+.seller-register-container .errorlist li {
+    list-style: none;
+}
+
+.seller-register-container .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.seller-register-container .checkbox-group label {
+    font-weight: 500;
+    color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .seller-register-container .form-row {
+        flex-direction: column;
+    }
+}
+
+
+
+/*seller dashboard css*/
+.seller-dashboard-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.dashboard-info p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.logout-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* ... (Your existing global styles) ... */
+
+/* General Form Styling */
+.add-product-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.page-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Fields */
+.add-product-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.add-product-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.add-product-form input,
+.add-product-form select,
+.add-product-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.add-product-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Button Styling */
+.btn-submit {
+    display: block;
+    width: 100%;
+    background: #007BFF;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background: #0056b3;
+}
+
+/* Back Link */
+.back-link {
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Seller Dashboard Styling */
+.seller-dashboard-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.seller-dashboard-container h1 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Store details section */
+.dashboard-info {
+    text-align: left;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.dashboard-info p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Product Table */
+.seller-products-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.seller-products-table th, .seller-products-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.seller-products-table th {
+    background: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.seller-products-table tr:hover {
+    background: #f1f1f1;
+}
+
+.no-products {
+    color: #777;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+/* Buttons */
+.dashboard-buttons {
+    margin-top: 20px;
+}
+
+.add-product-button, .logout-button {
+    display: inline-block;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-product-button {
+    background: #4CAF50;
+    color: white;
+    margin-right: 15px;
+}
+
+.add-product-button:hover {
+    background: #45a049;
+}
+
+.logout-button {
+    background: #e74c3c;
+    color: white;
+}
+
+.logout-button:hover {
+    background: #c0392b;
+}
+
+/* Edit & Delete Buttons */
+.edit-button {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: 0.2s;
+}
+
+.edit-button:hover {
+    color: #1c5a8d;
+}
+
+.delete-button {
+    background: #e74c3c;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.delete-button:hover {
+    background: #c0392b;
+}
+
+
+/* Delete Product Page Styling */
+.delete-product-container {
+    text-align: center;
+    max-width: 420px;
+    margin: 120px auto;
+    padding: 25px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.delete-product-title {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.delete-product-name {
+    font-weight: bold;
+    color: #d9534f; /* Red for warning */
+}
+
+.delete-product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.delete-product-btn {
+    background: #d9534f;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.delete-product-btn:hover {
+    background: #c9302c;
+}
+
+.delete-product-cancel-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 18px;
+    border-radius: 6px;
+    background: #e0e0e0;
+    transition: background 0.3s;
+}
+
+.delete-product-cancel-btn:hover {
+    background: #bfbfbf;
+}

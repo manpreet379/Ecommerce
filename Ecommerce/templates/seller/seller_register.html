@@ -1,0 +1,43 @@
+{% extends 'services/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="seller-register-container">
+    <h2>Seller Registration</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="{{ form.store_name.id_for_label }}">Store Name</label>
+        {{ form.store_name.as_widget }}
+        <div class="errorlist">{{ form.store_name.errors }}</div>
+
+        <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+        {{ form.phone_number.as_widget }}
+        <div class="errorlist">{{ form.phone_number.errors }}</div>
+
+        <label for="{{ form.gst_number.id_for_label }}">GST Number</label>
+        {{ form.gst_number.as_widget }}
+        <div class="errorlist">{{ form.gst_number.errors }}</div>
+
+        <label for="{{ form.email.id_for_label }}">Email</label>
+        {{ form.email.as_widget }}
+        <div class="errorlist">{{ form.email.errors }}</div>
+
+        <label for="{{ form.password.id_for_label }}">Password</label>
+        {{ form.password.as_widget }}
+        <div class="errorlist">{{ form.password.errors }}</div>
+
+        <label for="{{ form.confirm_password.id_for_label }}">Confirm Password</label>
+        {{ form.confirm_password.as_widget }}
+        <div class="errorlist">{{ form.confirm_password.errors }}</div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    {% if form.non_field_errors %}
+        <div class="errorlist">{{ form.non_field_errors }}</div>
+    {% endif %}
+</div>
+{% endblock %}
