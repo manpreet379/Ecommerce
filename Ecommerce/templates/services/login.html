@@ -6,9 +6,7 @@
     <div class="login-container">
         <h2>Login</h2>
 
-        {% if form.errors %}
-            <p class="error">Invalid email or password</p>
-        {% endif %}
+      
 
         <form method="POST">
             {% csrf_token %}

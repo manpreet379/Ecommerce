@@ -1,12 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from django.contrib.auth.mixins import LoginRequiredMixin
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.renderers import JSONRenderer 
 from django.views.generic import TemplateView
 from django.contrib.auth import login, authenticate,logout
 from .forms import AppUserRegisterForm, LoginForm,SellerRegisterForm,AddressForm,ProductForm
 from .models import AppUser, Address, Seller, Product
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .paginations import CustomPagination
+from .serializers import ProductSerializer
+import random
 
 
 class RegisterView(View):
@@ -141,6 +149,16 @@ class DeleteAddressView(View):
 def home(request):
     addresses = Address.objects.filter(user=request.user) if request.user.is_authenticated else None
     address_form = AddressForm() if request.user.is_authenticated else None
+    # selected_products = []
+    # if request.user.is_authenticated :
+    #     selected_products = Product.objects.order_by('?')[:10]  # Fetch 10 random products
+    #     print("Selected products:", selected_products) 
+    #     dell_product = Product.objects.get(name="dell")
+
+    # Print the image URL to the console (VS Code terminal)
+        # if dell_product.image:
+        #     print("Dell product image URL:", dell_product.image.url)# Debugging
+
     if request.method == "POST" and request.user.is_authenticated:
         address_form = AddressForm(request.POST)
         if address_form.is_valid():
@@ -148,8 +166,12 @@ def home(request):
             address.user = request.user
             address.save()
             return redirect('home')
-    return render(request, "services/home.html", {"addresses": addresses, "address_form": address_form})
 
+    return render(request, "services/home.html", {
+        "addresses": addresses,
+        "address_form": address_form,
+         # Pass random products to the template
+    })
 @login_required
 def set_default_address(request, address_id):
     address = get_object_or_404(Address, id=address_id, user=request.user)
@@ -206,3 +228,53 @@ def delete_product(request, product_id):
         return redirect('seller_dashboard')
 
     return render(request, 'seller/delete_product.html', {'product': product})
+
+
+
+## Product views:
+
+
+class ProductListView(APIView):
+    
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [IsAuthenticated]
+    pagination_class = CustomPagination
+    renderer_classes = [JSONRenderer] 
+    
+    def get(self,request,format=None):
+        
+        category = request.GET.get('category')
+        min_price = request.GET.get('min_price')
+        max_price = request.GET.get('max_price')
+        search = request.GET.get('search')
+        sort_by = request.GET.get('sort_by')
+        
+        products = Product.objects.all()
+        
+        if category:
+            products = products.filter(category=category)
+        if min_price:
+            products = products.filter(price__gte=min_price)
+        if max_price:
+            products = products.filter(price__lte=max_price)
+        if search:
+            products = products.filter(name__icontains=search)
+        if sort_by:
+            products = products.order_by(sort_by)
+            
+        paginator = CustomPagination()
+        paginated_products = paginator.paginate_queryset(products, request)
+        
+        serialized_products = ProductSerializer(paginated_products, many=True)
+        return Response(serialized_products.data)
+    
+    
+@login_required
+def products_page(request):
+    # Get a random selection of products
+    if request.user.is_authenticated:
+        products = Product.objects.all()
+        random_products = random.sample(list(products), min(5, len(products)))  # Get up to 5 random products
+        return render(request, 'services/products.html', {'products': random_products})
+    
+   

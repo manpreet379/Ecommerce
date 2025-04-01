@@ -39,6 +39,8 @@
         <!-- Add Address Button -->
         <button class="open-modal-button" onclick="openModal()">Add Address</button>
 
+        <a href="{% url 'products_page' %}" class="browse-products-button">Browse Products</a>
+
         <!-- Modal for Add Address Form -->
         <div id="address-modal" class="modal">
             <div class="modal-content">
@@ -85,8 +87,11 @@
             </div>
         </div>
 
-    {% else %}
-        <p class="not-logged-in">You are not logged in.</p>
-    {% endif %}
+       
+
+{% else %}
+    <p class="not-logged-in">You are not logged in.</p>
+{% endif %}
 </div>
+
 {% endblock %}
